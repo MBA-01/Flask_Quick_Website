@@ -1,4 +1,4 @@
-from flask import Blueprint,render_template
+from flask import Blueprint,render_template,request
 
 views = Blueprint(__name__,"views")
 
@@ -6,6 +6,10 @@ views = Blueprint(__name__,"views")
 def home():
     return render_template("index.html",name="Mohamed") # We can pass variable through here as 'name' and displayed on the html page
 
-@views.route("/profile/<username>")
-def profile(username):
-    return render_template("index.html", name=username)
+@views.route("/profile")
+def profile():
+    args = request.args
+    name = args.get("name")
+    return render_template("index.html", name=name)
+
+
