@@ -16,3 +16,11 @@ def profile():
 @views.route("/json")
 def get_json():
     return jsonify({"name":"Mohamed","coolness":10})
+
+
+# access data from received json file
+
+@views.route("/data")
+def get_data():
+    data = request.json
+    return jsonify(data)
