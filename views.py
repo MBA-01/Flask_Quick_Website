@@ -1,12 +1,7 @@
-from flask import Blueprint
+from flask import Blueprint,render_template
 
 views = Blueprint(__name__,"views")
 
 @views.route("/")
 def home():
-    return "First home page"
-
-
-@views.route("/home")
-def home2():
-    return "Second home page"
+    return render_template("index.html")
